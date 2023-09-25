@@ -506,7 +506,6 @@ input[type=file] {
   padding: 5px;
   background: #fff;
   border-radius: 10px;
-  border: 1px solid #555;
 }
 
 input[type=file]::file-selector-button {

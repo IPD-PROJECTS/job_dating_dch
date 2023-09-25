@@ -8,7 +8,6 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 @NgModule({
@@ -24,7 +23,6 @@ import { ToastModule } from 'primeng/toast';
     ButtonModule,
     InputTextModule,
     DropdownModule,
-    FileUploadModule,
     HttpClientModule,
     ToastModule
   ],
