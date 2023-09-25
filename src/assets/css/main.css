@@ -5,7 +5,7 @@
 /*
  * 2.0 Global Style
  */
-html {
+ html {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
@@ -19,7 +19,6 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
 }
-
 a {
   color: #000;
 }
@@ -43,6 +42,7 @@ p {
 ul li {
   font-weight: 700;
   margin-bottom: 10px;
+  color : #005a9a;
 }
 
 .custom-list-icon, .list-arrow-right {
@@ -193,19 +193,23 @@ ul li {
 .btn-white {
   color: #000;
   background-color: #fff;
+
 }
 .btn-white:hover, .btn-white:focus {
   color: #000;
   background-color: #fff;
+
 }
 
 .btn-black {
   color: #fff;
-  background-color: #000;
+  background-color: #005a9a;
+  border-radius: 5px;
 }
 .btn-black:hover, .btn-black:focus {
   color: #fff;
-  background-color: #000;
+  background-color: #002845;
+  border-radius: 5px;
 }
 
 /*
@@ -243,7 +247,7 @@ ul li {
   }
 
   .section-title {
-    color: #313131;
+    color: #005a9a;
     letter-spacing: 1px;
     margin: 0 0 60px;
     text-transform: uppercase;
@@ -258,7 +262,7 @@ ul li {
   margin: 0;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #000;
+  background-color: #ffffff;
   -webkit-transition: all 0.2s linear 0s;
           transition: all 0.2s linear 0s;
 }
@@ -290,8 +294,10 @@ ul li {
 }
 
 .navbar-solid {
-  background-color: #000 !important;
-  padding: 0 !important;
+  background-color: #0b94f2 !important;
+  /* padding: 0 !important; */
+  padding-bottom: 5px;
+  /* padding-top: 0px; */
   -webkit-transition: all 0.2s linear 0s;
           transition: all 0.2s linear 0s;
 }
@@ -300,6 +306,14 @@ ul li {
   float: left;
   margin-top: 0;
   margin-left: 10px;
+}
+.registrationbtn {
+  float: right;
+  margin-top: 0;
+  margin-right: 10px;
+  position:absolute;
+  top:60px;
+  right:10px;
 }
 .site-branding .logo {
   color: #fff;
@@ -364,7 +378,7 @@ ul li {
 @media (min-width: 768px) {
   .navbar-custom {
     background-color: transparent;
-    padding-top: 30px;
+    /* padding-top: 30px; */
   }
 
   .site-branding {
@@ -434,7 +448,7 @@ ul li {
  */
 .schedule-box {
   position: relative;
-  background-color: #000;
+  background-color: #005a9a;
   color: #fff;
   text-align: center;
   padding: 50px 0;
@@ -448,6 +462,66 @@ ul li {
   bottom: 5px;
   left: 5px;
   border: 1px solid #fff;
+}
+
+.drop-container {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px dashed #555;
+  color: #444;
+  cursor: pointer;
+  transition: background .2s ease-in-out, border .2s ease-in-out;
+}
+
+.drop-container:hover,
+.drop-container.drag-active {
+  background: #eee;
+  border-color: #111;
+}
+
+.drop-container:hover .drop-title,
+.drop-container.drag-active .drop-title {
+  color: #222;
+}
+
+.drop-title {
+  color: #444;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: color .2s ease-in-out;
+}
+
+input[type=file] {
+  width: 350px;
+  max-width: 100%;
+  color: #444;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #555;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
 }
 
 /*
@@ -518,8 +592,8 @@ ul li {
 }
 .faq .panel-default > .panel-heading {
   color: #FFF;
-  background-color: #000000;
-  border-color: #000;
+  background-color: #005a9a;
+  border-color: #005a9a;
   border-radius: 0;
   padding: 0;
 }
@@ -586,7 +660,7 @@ ul li {
  * 7.0 Site-footer
  */
 .site-footer {
-  background-color: #000;
+  background-color: #005a9a;
   color: #fff;
   text-align: center;
   padding: 30px 0;

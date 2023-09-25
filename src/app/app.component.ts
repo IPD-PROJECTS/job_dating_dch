@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
   residenceChoices = [ResidenceChoice.SENEGAL, ResidenceChoice.ETRANGER];
   isSubmitting = false;
+  isChecking = false;
   errorMsg: string | null = null;
   constructor(private fb: FormBuilder, private airtableService: AirtableService, private messageService: MessageService) {
     this.registerForm = this.fb.group({
@@ -60,13 +61,15 @@ export class AppComponent implements OnInit {
 
   async checkIfEmailAlreadyExist(email: string) {
     let result: any = [];
+    this.isChecking = true;
     try {
       result = await this.airtableService.findEmail(email);
       result = !!result.length;
     } catch (error) {
       result = false;
-    }
 
+    }
+    this.isChecking = false;
     return result;
   }
 
