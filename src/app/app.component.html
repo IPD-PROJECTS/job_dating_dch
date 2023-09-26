@@ -172,7 +172,15 @@
             <p-dropdown styleClass="w-full" formControlName="residence" [options]="residenceChoices"></p-dropdown>
           </div>
           <div class="field form-group">
-            <input pInputText formControlName="cvFile" class="w-full" type="file" />
+            <div class="flex gap-3 align-items-center">
+              <div>
+                <p-fileUpload #fileUploader [invalidFileSizeMessageDetail]="'Taille maximale de fichier authorisé est {0}'" [invalidFileSizeMessageSummary]="'{0}: Taille de fichier invalide'" mode="basic" name="cvFile" class="w-full" chooseLabel="Charger votre CV" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document, .pdf" [maxFileSize]="MAX_UPLOADED_FILE_SIZE" [customUpload]="true" (onSelect)="onFileSelected($event)"></p-fileUpload>
+                <ng-container *ngIf="registerForm.get('email')?.dirty || registerForm.get('email')?.touched">
+                  <small class="text-error" *ngIf="registerForm.controls['cvFile'].errors"> {{registerForm.controls['cvFile'].errors['required']}} </small>
+                </ng-container>
+              </div>
+              <p-button *ngIf="selectedCVFile" styleClass="p-button-danger p-button-text" label="X" (onClick)="fileUploader.clear(); selectedCVFile = undefined"></p-button>
+            </div>
           </div>
         </div>
       </div>
