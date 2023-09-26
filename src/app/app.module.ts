@@ -10,6 +10,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
+import { FileUploadModule } from 'primeng/fileupload';
 @NgModule({
   declarations: [
     AppComponent
@@ -24,6 +25,7 @@ import { ToastModule } from 'primeng/toast';
     InputTextModule,
     DropdownModule,
     HttpClientModule,
+    FileUploadModule,
     ToastModule
   ],
   providers: [],
