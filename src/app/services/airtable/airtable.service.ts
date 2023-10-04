@@ -16,6 +16,7 @@ export class AirtableService {
 
   findEmail(email: any) {
     return this.base('registered_users').select({
+      fields: ['email'],
       filterByFormula: `IF({email} = '${email}', TRUE(), FALSE())`
     }).all();
   }

@@ -19,12 +19,9 @@
 
     <div class="collapse navbar-collapse" id="navbar-items">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a data-scroll href="#about">About</a></li>
-
+        <li class="active"><a data-scroll href="#about">A propos</a></li>
         <li><a data-scroll href="#registration">Inscription</a></li>
         <li><a data-scroll href="#schedule">Programme</a></li>
-        <li><a data-scroll href="#partner">Partner</a></li>
-
         <li><a data-scroll href="#faq">FAQ</a></li>
       </ul>
     </div>
@@ -45,38 +42,55 @@
 <section id="about" class="section about">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6">
-        <h3 class="section-title">À PROPOS</h3>
+      <div class="col">
+        <div class="row">
+          <h3 class="section-title">À PROPOS</h3>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              L'Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l'innovation et l'éducation en Afrique.
+              Depuis sa fondation, l’Institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :
+            </p>
+            <li>Recherche & Développement</li>
+            <li>Diagnostic, vaccination, alimentation et environnement</li>
+            <li>Éducation, formation et développement des talents</li>
+            <li>Expertise et orientation stratégique en santé publique</li>
+            <li>Production et distribution de vaccins et de dispositifs médicaux.</li>
 
-        <p>
-          You've inspired new consumer, racked up click-thru's, blown-up brand enes. We can't give you back the weekends you worked, or erase the pain ebeing forced to make the
-          logo bigger. But if you submit your best work we ajusts might be able to give the chance to show you best digital marketing.
-        </p>
-
-        <figure>
-          <img alt="" class="img-responsive" src="assets/images/about-us.jpg" width="570" height="182" />
-        </figure>
+            <figure class="mt-2">
+              <img alt="" class="img-responsive" src="assets/images/about-us.jpg" width="570" height="182" />
+            </figure>
+          </div>
+          <div class="col-sm-6">
+            <p>
+              De manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle
+              régional important dans ses partenariats avec l'OMS et la lutte contre les maladies infectieuses.
+            </p>
+            <p>
+              A l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives
+              et efficaces aux problèmes de santé publique en Afrique ! Notre Ambition est de diriger, influencer et rendre la santé humaine accessible, équitable et durable à
+              toutes les populations.
+            </p>
+          </div>
+        </div>
       </div>
       <!-- /.col-sm-6 -->
 
-      <div class="col-sm-6">
-        <h3 class="section-title multiple-title">NOS OBJECTIFS</h3>
-
-        <p>
-          You've inspired new consumer, racked up click-thru's, blown-up brand enes. We can't give you back the weekends you worked, or erase the pain ebeing forced to make the
-          logo bigger. But if you submit your best work we ajusts might be able to give the chance to show you best digital marketing.
-        </p>
-
-        <ul class="list-arrow-right">
-          <li>Learn from the best Asian Social Media Experts &amp; Case Studies</li>
-          <li>Have dedicated 2-to-1 meetings with the experts</li>
-          <li>Reach more consumers for less by learning new digital media skills</li>
-          <li>Save money when spending in online advertising</li>
-        </ul>
-      </div>
       <!-- /.col-sm-6 -->
     </div>
     <!-- /.row -->
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <h3 class="section-title multiple-title">OBJECTIFS DU SALON</h3>
+
+        <ul class="list-arrow-right">
+          <li>Informer sur la Vision et la Mission de l’Institut en promouvant notamment sa Marque Employeur en local et à l’international.</li>
+          <li>Attirer en un temps record le maximum de profils et pourvoir les 200 postes vacants</li>
+          <li>Constituer un riche vivier de profils talents pour les futures échéances de la Fondation.</li>
+        </ul>
+      </div>
+    </div>
   </div>
   <!-- /.container -->
 </section>
@@ -124,8 +138,23 @@
 
     <form [formGroup]="registerForm" (submit)="onSubmit()" id="registration-form">
       <div class="row">
+      <div class="col">
+        <div class="formField  flex align-items-center">
+          <label class="md:mr-4" for="sexe">Sélectionner votre sexe</label>
+          <div *ngFor="let sexe of sexe_choices; index as i" class="field-checkbox ml-2">
+            <p-radioButton [inputId]="sexe + i" [value]="sexe" formControlName="sexe"></p-radioButton>
+            <label [for]="sexe + i">{{ sexe }}</label>
+          </div>
+          <ng-container *ngIf="registerForm.get('sexe')?.dirty || registerForm.get('sexe')?.touched">
+            <small class="text-error ml-3" *ngIf="registerForm.get('sexe')?.errors">Ce champs est requis</small>
+          </ng-container>
+        </div>
+      </div>
+      </div>
+      <div class="row">
         <div class="col-sm-6">
-          <div class="field form-group">
+
+          <div class="formField ">
             <div class="p-float-label">
               <input class="w-full" type="text" id="firstname" placeholder="Prénom" pInputText formControlName="firstname" />
               <label htmlFor="firstname">Prénom</label>
@@ -135,7 +164,7 @@
             </ng-container>
           </div>
 
-          <div class="field form-group">
+          <div class="formField ">
             <div class="p-float-label">
               <input class="w-full" id="lastname" type="text" placeholder="Nom" pInputText formControlName="lastname" />
               <label htmlFor="lastname">Nom</label>
@@ -145,7 +174,7 @@
             </ng-container>
           </div>
 
-          <div class="field form-group">
+          <div class="formField ">
             <div class="p-float-label">
               <input class="w-full" id="email" type="email" pInputText formControlName="email" placeholder="Email" />
               <label htmlFor="email">Email</label>
@@ -157,9 +186,7 @@
               </small>
             </ng-container>
           </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="field form-group">
+          <div class="formField ">
             <div class="p-float-label">
               <input type="text" id="phoneNumber" class="w-full" pInputText formControlName="phoneNumber" placeholder="Phone" id="cell" name="cell" />
               <label htmlFor="phoneNumber">Numéro de Téléphone</label>
@@ -168,15 +195,93 @@
               <small class="text-error" *ngIf="registerForm.get('phoneNumber')?.errors">Ce champs est requis</small>
             </ng-container>
           </div>
-          <div class="field form-group">
-            <p-dropdown styleClass="w-full" formControlName="residence" [options]="residenceChoices"></p-dropdown>
+
+          <div class="formField ">
+            <div class="p-float-label">
+              <p-dropdown placeholder="Lieu de résidence" inputId="residence" styleClass="w-full" formControlName="residence" [options]="residenceChoices"></p-dropdown>
+              <label htmlFor="residence">Lieu de résidence</label>
+            </div>
+            <ng-container *ngIf="registerForm.get('residence')?.dirty || registerForm.get('residence')?.touched">
+              <small class="text-error" *ngIf="registerForm.get('residence')?.errors">Ce champs est requis</small>
+            </ng-container>
           </div>
-          <div class="field form-group">
+        </div>
+        <div class="col-sm-6">
+
+          <div class="formField ">
+            <div class="p-float-label">
+              <p-dropdown placeholder="Sélectionner le diplôme obtenu" styleClass="w-full" formControlName="diplome" inputId="diplome" [options]="diplomes_choices"></p-dropdown>
+              <label for="diplome">Diplôme</label>
+            </div>
+            <ng-container *ngIf="registerForm.get('diplome')?.dirty || registerForm.get('diplome')?.touched">
+              <small class="text-error" *ngIf="registerForm.get('diplome')?.errors">Ce champs est requis</small>
+            </ng-container>
+          </div>
+          <div class="formField ">
+            <div class="p-float-label">
+              <p-dropdown
+                placeholder="Sélectionner votre nombre d'année d'expériences obtenu"
+                styleClass="w-full"
+                formControlName="experience"
+                [options]="years_experience_choices"
+                (onChange)="onExperienceSelected($event)"
+                inputId="experience"
+              ></p-dropdown>
+              <label for="experience">Années d'expérience</label>
+            </div>
+            <ng-container *ngIf="registerForm.get('experience')?.dirty || registerForm.get('experience')?.touched">
+              <small class="text-error" *ngIf="registerForm.controls['experience'].errors && registerForm.controls['experience'].errors['required']">Ce champs est requis</small>
+            </ng-container>
+          </div>
+          <div class="formField  mt-3">
+            <div class="p-float-label">
+              <p-multiSelect styleClass="w-full" inputId="metier" [options]="list_metiers" [selectionLimit]="3" formControlName="metier" defaultLabel="Sélectionner un(des) metier(s)" display="chip"></p-multiSelect>
+              <label for="metier">Metiers choisis</label>
+            </div>
+              <ng-container *ngIf="registerForm.get('metier')?.dirty || registerForm.get('metier')?.touched">
+                <small class="text-error" *ngIf="registerForm.controls['metier'].errors && registerForm.controls['metier'].errors['required']">Ce champs est requis</small>
+              </ng-container>
+          </div>
+
+          <div class="formField ">
+            <div class="p-float-label">
+              <p-dropdown placeholder="Sélectionner une journee suivant le programme" inputId="journee" styleClass="w-full" formControlName="journee" (onChange)="onProgrammeSelected($event)" [options]="journees_choices"></p-dropdown>
+              <label for="journee">Programme</label>
+            </div>
+            <ng-container *ngIf="registerForm.get('journee')?.dirty || registerForm.get('journee')?.touched">
+              <small class="text-error" *ngIf="registerForm.controls['journee'].errors && registerForm.controls['journee'].errors['required']">Ce champs est requis</small>
+              <small class="text-error" *ngIf="registerForm.controls['journee'].errors && registerForm.controls['journee'].errors['invalidProgram']"> {{registerForm.controls['journee'].errors['invalidProgram']}} </small>
+            </ng-container>
+          </div>
+          <div class="formField ">
+            <p-multiSelect styleClass="w-full" [options]="list_languages" formControlName="languesMaitrisees" defaultLabel="Sélectionner les langues maîtrisées" display="chip"></p-multiSelect>
+            <ng-container *ngIf="registerForm.get('languesMaitrisees')?.dirty || registerForm.get('languesMaitrisees')?.touched">
+              <small class="text-error" *ngIf="registerForm.get('languesMaitrisees')?.errors">Ce champs est requis</small>
+            </ng-container>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="formField ">
             <div class="flex gap-3 align-items-center">
               <div>
-                <p-fileUpload #fileUploader [invalidFileSizeMessageDetail]="'Taille maximale de fichier authorisé est {0}'" [invalidFileSizeMessageSummary]="'{0}: Taille de fichier invalide'" mode="basic" name="cvFile" class="w-full" chooseLabel="Charger votre CV" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document, .pdf" [maxFileSize]="MAX_UPLOADED_FILE_SIZE" [customUpload]="true" (onSelect)="onFileSelected($event)"></p-fileUpload>
+                <p-fileUpload
+                  #fileUploader
+                  [invalidFileSizeMessageDetail]="'Taille maximale de fichier authorisé est {0}'"
+                  [invalidFileSizeMessageSummary]="'{0}: Taille de fichier invalide'"
+                  mode="basic"
+                  name="cvFile"
+                  class="w-full"
+                  chooseLabel="Charger votre CV"
+                  accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document, .pdf"
+                  [maxFileSize]="MAX_UPLOADED_FILE_SIZE"
+                  [customUpload]="true"
+                  (onSelect)="onFileSelected($event)"
+                ></p-fileUpload>
                 <ng-container *ngIf="registerForm.get('email')?.dirty || registerForm.get('email')?.touched">
-                  <small class="text-error" *ngIf="registerForm.controls['cvFile'].errors"> {{registerForm.controls['cvFile'].errors['required']}} </small>
+                  <small class="text-error" *ngIf="registerForm.controls['cvFile'].errors"> {{ registerForm.controls['cvFile'].errors['required'] }} </small>
                 </ng-container>
               </div>
               <p-button *ngIf="selectedCVFile" styleClass="p-button-danger p-button-text" label="X" (onClick)="fileUploader.clear(); selectedCVFile = undefined"></p-button>
@@ -204,100 +309,25 @@
     <div class="row">
       <div class="col-md-12">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          <div class="panel panel-default">
+          <div *ngFor="let item of listFAQ; index as i" class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
               <h4 class="panel-title">
-                <a class="faq-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  What is the price of the ticket ?</a
-                >
-              </h4>
-            </div>
-
-            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-              <div class="panel-body">
-                <h3>Hello</h3>
-                <p>Lorem Ipsum</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-              <h4 class="panel-title">
-                <a class="faq-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  What is included in my ticket ?</a
-                >
-              </h4>
-            </div>
-
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-              <div class="panel-body">Hello</div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-              <h4 class="panel-title">
                 <a
                   class="faq-toggle collapsed"
                   role="button"
                   data-toggle="collapse"
                   data-parent="#accordion"
-                  href="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
+                  [href]="'#collapse' + i"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
                 >
-                  Office address ?</a
-                >
-              </h4>
-            </div>
-
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-              <div class="panel-body">Hello</div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFour">
-              <h4 class="panel-title">
-                <a
-                  class="faq-toggle collapsed"
-                  role="button"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseFour"
-                  aria-expanded="false"
-                  aria-controls="collapseFour"
-                >
-                  How should I dress ?</a
+                  {{ item.question }}</a
                 >
               </h4>
             </div>
 
-            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-              <div class="panel-body">Hello</div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFive">
-              <h4 class="panel-title">
-                <a
-                  class="faq-toggle collapsed"
-                  role="button"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseFive"
-                  aria-expanded="false"
-                  aria-controls="collapseFive"
-                >
-                  I have specific questions that are not addressed here. Who can help me ?</a
-                >
-              </h4>
-            </div>
-
-            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-              <div class="panel-body">Hello</div>
+            <div [id]="'collapse' + i" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">{{ item.answer }}</div>
             </div>
           </div>
         </div>
