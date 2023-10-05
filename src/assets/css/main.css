@@ -262,7 +262,7 @@ ul li {
   margin: 0;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #ffffff;
+  background-color: transparent;
   -webkit-transition: all 0.2s linear 0s;
           transition: all 0.2s linear 0s;
 }
@@ -306,6 +306,8 @@ ul li {
   float: left;
   margin-top: 0;
   margin-left: 10px;
+  background: white;
+  border-radius: 10px;
 }
 .registrationbtn {
   float: right;

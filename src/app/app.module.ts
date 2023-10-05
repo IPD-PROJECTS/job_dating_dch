@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { FileUploadModule } from 'primeng/fileupload';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { MultiSelectModule } from 'primeng/multiselect';
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +28,9 @@ import { FileUploadModule } from 'primeng/fileupload';
     DropdownModule,
     HttpClientModule,
     FileUploadModule,
-    ToastModule
+    ToastModule,
+    RadioButtonModule,
+    MultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
