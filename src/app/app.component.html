@@ -139,7 +139,7 @@
     <form [formGroup]="registerForm" (submit)="onSubmit()" id="registration-form">
       <div class="row">
       <div class="col">
-        <div class="formField  flex align-items-center">
+        <div class="formField  flex align-items-baseline">
           <label class="md:mr-4" for="sexe">Sélectionner votre sexe</label>
           <div *ngFor="let sexe of sexe_choices; index as i" class="field-checkbox ml-2">
             <p-radioButton [inputId]="sexe + i" [value]="sexe" formControlName="sexe"></p-radioButton>
