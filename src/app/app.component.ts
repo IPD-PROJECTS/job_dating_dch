@@ -41,6 +41,9 @@ enum LANGUAGES {
   FRANCAIS = 'Français',
   ENGLAIS = 'Anglais'
 }
+const REGISTRATION_SUCCESS_TOAST_MSG = "Vous avez bien été enregistré pour l'événement. Une notification vous sera envoyé par email.";
+const REGISTRATION_FAILED_TOAST_MSG = "Veuillez nous excuser, une erreur s'est produite. Veuillez réessayer ultérieurement";
+const EMAIL_ALREADY_USED_ERROR_TOAST_MSG = "L'email que vous avez renseigné a déjà été utilisé";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -100,17 +103,17 @@ export class AppComponent implements OnInit {
            try {
              await this.airtableService.registerUser(this.registerForm.value);
              this.isSubmitting = false;
-             this.displayToastMsg('Vous avez bien été enregistré', true);
+             this.displayToastMsg(REGISTRATION_SUCCESS_TOAST_MSG, true);
              this.clearAll();
            } catch (error) {
              this.errorMsg = "Une erreur s'est produite. Veuillez reessayer";
              this.isSubmitting = false;
-             this.displayToastMsg("Veuillez nous excuser, une erreur s'est produite. Veuillez réessayé ", false);
+             this.displayToastMsg(REGISTRATION_FAILED_TOAST_MSG, false);
            }
 
         } else {
           this.registerForm.get('email')?.setErrors({emailAlreadyExist: 'Cet email est déjà enregistré'});
-          this.displayToastMsg("L'email que vous avez renseigné a déjà été utilisé", false);
+          this.displayToastMsg(EMAIL_ALREADY_USED_ERROR_TOAST_MSG, false);
         }
 
       }
