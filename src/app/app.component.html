@@ -58,9 +58,10 @@
             <li>Expertise et orientation stratégique en santé publique</li>
             <li>Production et distribution de vaccins et de dispositifs médicaux.</li>
 
-            <figure class="mt-2">
+            <!-- <figure class="mt-2">
               <img alt="" class="img-responsive" src="assets/images/about-us.jpg" width="570" height="182" />
-            </figure>
+            </figure> -->
+
           </div>
           <div class="col-sm-6">
             <p>
@@ -79,15 +80,31 @@
 
       <!-- /.col-sm-6 -->
     </div>
+    <div class="flex justify-content-center w-full mb-4">
+      <p-galleria  [value]="slides" [showThumbnails]="false" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.imgSrc" style="width: 100%; display: block;" />
+        </ng-template>
+    </p-galleria>
+    </div>
     <!-- /.row -->
     <div class="row mt-3">
-      <div class="col-sm-6">
+      <div class="col-md-6 col-sm mb-4 md:mb-0">
         <h3 class="section-title multiple-title">OBJECTIFS DU SALON</h3>
 
         <ul class="list-arrow-right">
           <li>Informer sur la Vision et la Mission de l’Institut en promouvant notamment sa Marque Employeur en local et à l’international.</li>
           <li>Attirer en un temps record le maximum de profils et pourvoir les 200 postes vacants</li>
           <li>Constituer un riche vivier de profils talents pour les futures échéances de la Fondation.</li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm">
+        <h3 class="section-title multiple-title">SECTEURS D’ACTIVITES</h3>
+        <ul class="list-arrow-right">
+          <li> Vaccin </li>
+          <li> Recherche </li>
+          <li> Ingénierie & Projet </li>
+          <li>  Support </li>
         </ul>
       </div>
     </div>
@@ -210,8 +227,8 @@
 
           <div class="formField ">
             <div class="p-float-label">
-              <p-dropdown placeholder="Sélectionner le diplôme obtenu" styleClass="w-full" formControlName="diplome" inputId="diplome" [options]="diplomes_choices"></p-dropdown>
-              <label for="diplome">Diplôme</label>
+              <p-dropdown placeholder="Sélectionner le niveau d'étude" styleClass="w-full" formControlName="diplome" inputId="diplome" [options]="diplomes_choices"></p-dropdown>
+              <label for="diplome">Niveau d'étude</label>
             </div>
             <ng-container *ngIf="registerForm.get('diplome')?.dirty || registerForm.get('diplome')?.touched">
               <small class="text-error" *ngIf="registerForm.get('diplome')?.errors">Ce champs est requis</small>
@@ -235,7 +252,7 @@
           </div>
           <div class="formField  mt-3">
             <div class="p-float-label">
-              <p-multiSelect styleClass="w-full" inputId="metier" [options]="list_metiers" [selectionLimit]="3" formControlName="metier" defaultLabel="Sélectionner un(des) metier(s)" display="chip"></p-multiSelect>
+              <p-multiSelect styleClass="w-full" inputId="metier" [options]="list_metiers" [selectionLimit]="3" formControlName="metier"  [filter]="true" defaultLabel="Sélectionner un(des) metier(s)" display="chip"></p-multiSelect>
               <label for="metier">Metiers choisis</label>
             </div>
               <ng-container *ngIf="registerForm.get('metier')?.dirty || registerForm.get('metier')?.touched">

@@ -113,5 +113,5 @@ function removeWhiteSpaceAndSpecialCaracters(text: string): string {
   ];
 
   export const LIST_METIER = [
-    'Production', 'R&D', 'Maintenance', 'Qualité', 'HSE', 'Process Engineering', 'Génie de Procédé', 'PMO', 'Affaires Réglementaires', 'Qualification Validation', 'Immunologie', 'Bactériologie', 'Epidémiologie', 'Virologie', 'Entomologie', 'Biobanque', 'Innovation', 'Génie Informatique', 'Finances', 'Comptabilité', 'Supply Chain', 'Métrologie', 'Marketing', 'Capital Humain', 'Gestion de Projet'
+    'Production', 'Recherche & Développement', 'Maintenance', 'Qualité', 'HSE', 'Process Engineering', 'Génie de Procédé', 'PMO', 'Affaires Réglementaires', 'Qualification Validation', 'Immunologie', 'Bactériologie', 'Epidémiologie', 'Virologie', 'Entomologie', 'Biobanque', 'Innovation', 'Génie Informatique', 'Finances', 'Comptabilité', 'Supply Chain', 'Métrologie', 'Marketing', 'Capital Humain', 'Gestion de Projet'
   ]
