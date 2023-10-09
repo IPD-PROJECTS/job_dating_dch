@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MessageService} from 'primeng/api';
+import { MessageService} from 'primeng/api';
 
 import { AirtableService } from './services/airtable/airtable.service';
 import { FirebaseService } from './services/firebase/firebase.service';
@@ -58,7 +58,9 @@ export class AppComponent implements OnInit {
   diplomes_choices = [DIPLOME.BAC, DIPLOME.LICENCE, DIPLOME.MASTER, DIPLOME.THESE,  DIPLOME.POST_DOC];
   years_experience_choices = [YEARS_EXPERIENCE.MOINS_DE_3, YEARS_EXPERIENCE.ENTRE_3_ET_10, YEARS_EXPERIENCE.PLUS_DE_10]
   journees_choices = [JOURNEE_SALON.JOUR_1, JOURNEE_SALON.JOUR_2, JOURNEE_SALON.JOUR_3];
-  list_metiers = LIST_METIER;
+  list_metiers = LIST_METIER.map((item) => {
+    return { label: item, value: item }
+  });
   list_languages = [LANGUAGES.FRANCAIS, LANGUAGES.ENGLAIS]
   JOURNEE_SALON = JOURNEE_SALON;
   YEARS_EXPERIENCE = YEARS_EXPERIENCE;
@@ -69,6 +71,25 @@ export class AppComponent implements OnInit {
   selectedCVFileUploaded = false;
   listFAQ = FAQ_LIST;
   @ViewChild('fileUploader') fileUploader?: FileUpload;
+  responsiveOptions: any[] = [
+    {
+        breakpoint: '1024px',
+        numVisible: 5
+    },
+    {
+        breakpoint: '768px',
+        numVisible: 3
+    },
+    {
+        breakpoint: '560px',
+        numVisible: 1
+    }
+];
+slides = [
+  {
+  imgSrc: 'assets/images/about-us.jpg',
+}
+];
   constructor(private fb: FormBuilder, private airtableService: AirtableService, private messageService: MessageService, private firebaseService: FirebaseService) {
     this.registerForm = this.fb.group({
       firstname: [null, [Validators.required, Validators.maxLength(50)]],

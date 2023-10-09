@@ -13,6 +13,7 @@ import { ToastModule } from 'primeng/toast';
 import { FileUploadModule } from 'primeng/fileupload';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { GalleriaModule } from 'primeng/galleria';
 @NgModule({
   declarations: [
     AppComponent
@@ -30,7 +31,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
     FileUploadModule,
     ToastModule,
     RadioButtonModule,
-    MultiSelectModule
+    MultiSelectModule,
+    GalleriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
